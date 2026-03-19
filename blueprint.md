@@ -42,3 +42,7 @@ The project is to build a complete, playable Brick Breaker game. The player will
     *   Create the brick grid and implement collision detection with the ball.
     *   Add scoring and win/loss conditions.
     *   Add a restart functionality.
+5.  **[in_progress]** Integrate Disqus comments into `index.html`:
+    *   Add the `<div id="disqus_thread"></div>` element.
+    *   Include the Disqus embed script.
+    *   Configure `disqus_config` variables (`this.page.url` and `this.page.identifier`) for proper integration.
