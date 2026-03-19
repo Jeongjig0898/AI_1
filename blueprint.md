@@ -1,32 +1,44 @@
-# Project Blueprint: Simple Word Translator
+# Project Blueprint: Brick Breaker Game
 
-This document outlines the plan, features, and design for a simple, "Papago-style" word translator application.
+This document outlines the plan for creating a classic Brick Breaker game that runs in a single web page using HTML, CSS, and JavaScript.
 
 ## 1. Overview
 
-The goal is to create a clean, single-page web application that allows a user to enter a word and see its "translation." Since we don't have access to a real translation API, the translation will be simulated using a predefined JavaScript dictionary.
+The project is to build a complete, playable Brick Breaker game. The player will control a paddle at the bottom of the screen to bounce a ball and destroy a field of bricks at the top.
 
-## 2. Features
+## 2. Core Game Mechanics
 
-*   **Input Area:** A textarea where the user can type a word.
-*   **Translate Button:** A button to trigger the translation.
-*   **Output Area:** A section to display the translated word.
-*   **Simple Dictionary:** A hardcoded list of Korean-to-English word pairs.
-*   **Not Found Message:** A message to show if the word is not in the dictionary.
+*   **Canvas:** The game will be rendered on an HTML `<canvas>` element.
+*   **Game Objects:**
+    *   **Ball:** A circle that moves and bounces off walls, the paddle, and bricks.
+    *   **Paddle:** A rectangle at the bottom of the screen, controlled by the player's mouse.
+    *   **Bricks:** A grid of rectangles at the top of the screen that disappear when hit by the ball.
+*   **Game Logic:**
+    *   **Movement:** The ball will move at a constant velocity. The paddle will follow the horizontal position of the mouse.
+    *   **Collision Detection:**
+        *   The ball will bounce off the top and side walls of the canvas.
+        *   The ball will bounce off the paddle.
+        *   The ball will destroy bricks upon impact.
+    *   **Scoring:** The player's score will increase for each brick destroyed.
+*   **Win/Loss Conditions:**
+    *   **Loss:** The game ends if the ball hits the bottom wall of the canvas.
+    *   **Win:** The game is won when all bricks are destroyed.
+*   **UI:**
+    *   Display the current score.
+    *   Show a "Game Over" or "You Win!" message.
+    *   A button to restart the game after it ends.
 
-## 3. Design & Style
+## 3. Implementation Plan
 
-*   **Layout:** A centered, clean layout using modern CSS (Flexbox or Grid).
-*   **Color Palette:** A simple and modern color scheme (e.g., light grays, a primary color for the button).
-*   **Typography:** A clean, readable web font.
-*   **UI Elements:**
-    *   Input and output boxes will have rounded corners, padding, and subtle box shadows to look "lifted."
-    *   The button will have a clear call-to-action style.
-*   **Responsiveness:** The layout will be mobile-responsive, adapting to different screen sizes.
-
-## 4. Current Task: Implementation Plan
-
-1.  **[COMPLETED]** Create a `blueprint.md` file to outline the project's plan, features, and design.
-2.  **[in_progress]** Create the basic HTML structure (`index.html`) with a textarea, a button, and a div for the output.
-3.  **[pending]** Style the application (`style.css`) to match the design goals.
-4.  **[pending]** Implement the translation logic (`main.js`) with a simple dictionary and event listeners.
+1.  **[COMPLETED]** Create a new `blueprint.md` for the Brick Breaker game.
+2.  **[in_progress]** Set up the basic HTML structure (`index.html`) containing a `<canvas>` element and placeholders for the score and game messages.
+3.  **[pending]** Style the game (`style.css`) to center the canvas and format the UI text.
+4.  **[pending]** Implement the core game logic (`main.js`):
+    *   Initialize canvas and rendering context.
+    *   Define properties and drawing functions for the ball, paddle, and bricks.
+    *   Create the main game loop (`requestAnimationFrame`).
+    *   Implement ball movement and collision with walls and the paddle.
+    *   Implement mouse controls for the paddle.
+    *   Create the brick grid and implement collision detection with the ball.
+    *   Add scoring and win/loss conditions.
+    *   Add a restart functionality.
