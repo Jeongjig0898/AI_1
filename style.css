@@ -13,8 +13,29 @@ canvas {
     background: #000;
     border-radius: 8px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    margin-bottom: 20px; /* Space between canvas and controls/disqus */
 }
 
 h1 {
     color: #333;
+}
+
+.game-controls {
+    margin-bottom: 20px; /* Space between controls and disqus */
+}
+
+#startButton {
+    padding: 15px 30px;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #fff;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#startButton:hover {
+    background-color: #45a049;
 }

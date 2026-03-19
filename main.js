@@ -1,11 +1,13 @@
 const canvas = document.getElementById('gameCanvas');
 const ctx = canvas.getContext('2d');
+const startButton = document.getElementById('startButton');
 
 // Game variables
 let score = 0;
 let lives = 3;
 let gameOver = false;
 let gameWon = false;
+let gameStarted = false; // New flag for game state
 
 // Ball properties
 const ball = {
@@ -152,6 +154,18 @@ function collisionDetection() {
 // --- GAME LOOP ---
 
 function update() {
+    if (!gameStarted) {
+        // Draw initial state but don't update game logic
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        drawBricks();
+        drawBall();
+        drawPaddle();
+        drawScore();
+        drawLives();
+        requestAnimationFrame(update);
+        return;
+    }
+
     if (gameOver) {
         ctx.font = '48px Arial';
         ctx.fillStyle = '#fff';
@@ -195,6 +209,7 @@ function update() {
 // --- EVENT LISTENERS ---
 
 document.addEventListener('mousemove', (e) => {
+  if (!gameStarted || gameOver || gameWon) return; // Only allow paddle movement when game is active
   const relativeX = e.clientX - canvas.offsetLeft;
   if (relativeX > 0 && relativeX < canvas.width) {
     paddle.x = relativeX - paddle.width / 2;
@@ -207,6 +222,11 @@ document.addEventListener('click', () => {
     }
 });
 
+startButton.addEventListener('click', () => {
+    gameStarted = true;
+    startButton.style.display = 'none'; // Hide the start button
+    update(); // Start the game loop
+});
 
-// Start the game
+// Initial draw before the game starts
 update();

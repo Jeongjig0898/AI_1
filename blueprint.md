@@ -46,3 +46,8 @@ The project is to build a complete, playable Brick Breaker game. The player will
     *   Add the `<div id="disqus_thread"></div>` element.
     *   Include the Disqus embed script.
     *   Configure `disqus_config` variables (`this.page.url` and `this.page.identifier`) for proper integration.
+6.  **[in_progress]** Add a start button to begin the game:
+    *   Add a "Start Game" button to the HTML.
+    *   Style the button.
+    *   Modify the game loop to wait for a `gameStarted` flag before running the game logic.
+    *   Add an event listener to the button to start the game.
