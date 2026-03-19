@@ -3,12 +3,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hello World</title>
+  <title>Simple Word Translator</title>
   <link href='/style.css' rel='stylesheet'>
 </head>
 <body>
-  <h1>Hello, world!</h1>
-  <button onclick="console.log('hello');">Press me</button>
+  <div class="translator-container">
+    <h1>Simple Word Translator</h1>
+    <div class="translator-body">
+      <textarea id="input-text" placeholder="Enter a word..."></textarea>
+      <button id="translate-btn">Translate</button>
+      <div id="output-text"></div>
+    </div>
+  </div>
   <script defer type="text/javascript" src="/main.js"></script>
 </body>
 </html>
